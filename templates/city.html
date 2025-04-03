@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ city }} Climate Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background: url("{{ url_for('static', filename='background.jpg') }}") no-repeat center center/cover;
+            height: 100vh;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Climate Prediction for {{ city }}</h1>
+    <canvas id="climateChart"></canvas>
+
+    <script>
+        var timestamps = {{ timestamps | tojson }};
+        var temperatures = {{ temperatures | tojson }};
+
+        var ctx = document.getElementById('climateChart').getContext('2d');
+        var climateChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: timestamps,
+                datasets: [{
+                    label: 'Temperature (°C)',
+                    data: temperatures,
+                    borderColor: 'orange',
+                    backgroundColor: 'rgba(255, 165, 0, 0.2)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: { ticks: { color: 'white' } },
+                    y: { ticks: { color: 'white' } }
+                }
+            }
+        });
+    </script>
+
+    <footer>© 2025 AI for Environmental Sustainability</footer>
+
+</body>
+</html>

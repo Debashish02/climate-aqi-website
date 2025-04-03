@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroScope</title>
+    <h1>AeroScope</h1>
+    <style>
+       body {
+    background: url("static/background.jpg") no-repeat center center/cover;
+    height: 100vh; /* This makes the background cover the full viewport height */
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+        .container {
+            margin-top: 50px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px;
+        }
+        .button {
+            border: none;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .button img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+        #content {
+            margin-top: 30px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="button" onclick="window.location.href='climate'">
+        <img src="{{ url_for('static', filename='climate.jpg') }}" alt="Climate">
+        <p>Climate</p>
+    </button>
+    <button class="button" onclick="window.location.href='humidity'">
+        <img src="{{ url_for('static', filename='humidity.jpg') }}" alt="Humidity">
+        <p>Humidity</p>
+    </button>
+    <button class="button" onclick="window.location.href='aqi'">
+        <img src="{{ url_for('static', filename='aqi.jpg') }}" alt="AQI">
+        <p>Air Quality Index</p>
+    </button>
+    
+    <footer>© 2025 AI for Environmental Sustainability
+        <br>
+        Debashish Muni
+    </footer>
+</body>
+</html>

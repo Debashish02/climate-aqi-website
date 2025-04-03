@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Prediction</title>
+    <style>
+        body {
+            background: url("{{ url_for('static', filename='background.jpg') }}") no-repeat center center/cover;
+            height: 100vh;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px;
+        }
+        .button {
+            border: none;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.2s;
+            text-align: center;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .button img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Air Quality Index</h1>
+<div class="button-container">
+    <button class="button" onclick="window.location.href='/aqi/Mumbai'">
+        <img src="{{ url_for('static', filename='mumbai.jpg') }}" alt="Mumbai">
+        <p>Mumbai</p>
+    </button>
+    <button class="button" onclick="window.location.href='/aqi/Delhi'">
+        <img src="{{ url_for('static', filename='delhi.jpg') }}" alt="Delhi">
+        <p>Delhi</p>
+    </button>
+    <button class="button" onclick="window.location.href='/aqi/Bangalore'">
+        <img src="{{ url_for('static', filename='bangalore.jpg') }}" alt="Bangalore">
+        <p>Bangalore</p>
+    </button>
+    <button class="button" onclick="window.location.href='/aqi/Chennai'">
+        <img src="{{ url_for('static', filename='chennai.jpg') }}" alt="Chennai">
+        <p>Chennai</p>
+    </button>
+    <button class="button" onclick="window.location.href='/aqi/Kolkata'">
+        <img src="{{ url_for('static', filename='kolkata.jpg') }}" alt="Kolkata">
+        <p>Kolkata</p>
+    </button>
+</div>
+
+
+    <footer>© 2025 AI for Environmental Sustainability</footer>
+
+</body>
+</html>
