@@ -1,0 +1,8 @@
+Flask
+requests
+pandas
+numpy
+matplotlib
+seaborn
+geopandas
+gunicorn
